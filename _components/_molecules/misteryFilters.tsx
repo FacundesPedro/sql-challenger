@@ -73,7 +73,7 @@ export function MysteryFilters({
             <button
               key={difficulty.value}
               onClick={() => onDifficultyChange(difficulty.value)}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all hover:cursor-pointer ${
                 selectedDifficulty === difficulty.value
                   ?  "bg-primary text-primary-foreground shadow-md"
                   : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
@@ -91,7 +91,7 @@ export function MysteryFilters({
         <div className="flex flex-wrap gap-2">
           <button
             onClick={() => onCategoryChange("all")}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all hover:cursor-pointer ${
               selectedCategory === "all"
                 ? "bg-accent text-accent-foreground shadow-md"
                 : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
@@ -103,7 +103,7 @@ export function MysteryFilters({
             <button
               key={category}
               onClick={() => onCategoryChange(category)}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all hover:cursor-pointer ${
                 selectedCategory === category
                   ? "bg-accent text-accent-foreground shadow-md"
                   : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
