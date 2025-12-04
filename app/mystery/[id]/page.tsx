@@ -27,7 +27,11 @@ export default function MysteryEditorPage() {
   useEffect(() => {
     // Load mystery data
     // TODO: Replace with actual API call
-    setMystery(mockMysteryDetail);
+    (async () => {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      setMystery(mockMysteryDetail);
+    })()
   }, [mysteryId]);
 
   const handleRunQuery = async () => {
@@ -43,7 +47,7 @@ export default function MysteryEditorPage() {
       // TODO: Execute query against in-browser SQL database
       // For now, simulate execution
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      
+
       // Mock results
       setResults({
         columns: ["id", "name", "value"],
@@ -60,7 +64,7 @@ export default function MysteryEditorPage() {
   };
 
   const handleRevealHint = (hintId: string) => {
-    if (! hintsRevealed.includes(hintId)) {
+    if (!hintsRevealed.includes(hintId)) {
       setHintsRevealed([...hintsRevealed, hintId]);
       // TODO: Deduct XP penalty
     }
@@ -115,31 +119,28 @@ export default function MysteryEditorPage() {
             <div className="flex border-b border-border">
               <button
                 onClick={() => setActiveTab("story")}
-                className={`flex-1 px-4 py-3 text-sm font-medium transition-colors ${
-                  activeTab === "story"
-                    ?  "text-primary border-b-2 border-primary"
+                className={`flex-1 px-4 py-3 text-sm font-medium transition-colors ${activeTab === "story"
+                    ? "text-primary border-b-2 border-primary"
                     : "text-muted-foreground hover:text-foreground"
-                }`}
+                  }`}
               >
                 História
               </button>
               <button
                 onClick={() => setActiveTab("database")}
-                className={`flex-1 px-4 py-3 text-sm font-medium transition-colors ${
-                  activeTab === "database"
+                className={`flex-1 px-4 py-3 text-sm font-medium transition-colors ${activeTab === "database"
                     ? "text-primary border-b-2 border-primary"
                     : "text-muted-foreground hover:text-foreground"
-                }`}
+                  }`}
               >
                 Banco de Dados
               </button>
               <button
                 onClick={() => setActiveTab("hints")}
-                className={`flex-1 px-4 py-3 text-sm font-medium transition-colors ${
-                  activeTab === "hints"
+                className={`flex-1 px-4 py-3 text-sm font-medium transition-colors ${activeTab === "hints"
                     ? "text-primary border-b-2 border-primary"
                     : "text-muted-foreground hover:text-foreground"
-                }`}
+                  }`}
               >
                 Dicas ({hintsRevealed.length}/{mystery.hints.length})
               </button>
