@@ -12,31 +12,52 @@ export default function HomePage() {
       <ThreeScene />
       {/* Hero Section */}
       <section className="mx-auto max-w-7xl sm:mt-12 mt-16 px-4 sm:px-6 lg:px-8">
-        <div className="text-center space-y-8">
-          <Badge variant="primary" className="text-sm">
-            🔍 Aprenda SQL com Histórias de Detetive
-          </Badge>
-          <h1 className="text-5xl md:text-6xl font-bold text-balance leading-tight">
-            Domine SQL resolvendo
-            <br />
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Mistérios da Vida Real
-            </span>
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-balance">
-            Junte-se a milhares de desenvolvedores aprendendo SQL por meio de histórias de detetive envolventes, desafios gamificados e prática interativa.
-          </p>
-          <div className="flex items-center justify-center gap-4">
-            <Link href="/auth/register">
-              <Button size="lg" className="cursor-pointer">Comece sua Investigação</Button>
-            </Link>
-            <Link href="/auth/login">
-              <Button size="lg" variant="outline" className="cursor-pointer">
-                Entrar
-              </Button>
-            </Link>
-          </div>
-        </div>
+       <div className="text-center space-y-8">
+  <Badge variant="primary" className="text-sm">
+     A forma mais envolvente de aprender SQL
+  </Badge>
+  
+  <h1 className="text-5xl md:text-6xl font-bold text-balance leading-tight">
+    Aprenda SQL sem decorar
+    <br />
+    <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+      Aprenda Investigando
+    </span>
+  </h1>
+  
+  <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-balance leading-relaxed">
+    Desafios gamificados + Histórias de detetive + Feedback instantâneo.  
+    O método que torna SQL impossível de esquecer.
+  </p>
+  
+  <div className="flex items-center justify-center gap-4 flex-wrap">
+    <Link href="/auth/register">
+      <Button size="lg" className="cursor-pointer shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-shadow">
+        Resolver Primeiro Mistério
+      </Button>
+    </Link>
+    <Link href="/auth/login">
+      <Button size="lg" variant="outline" className="cursor-pointer">
+        Já tenho conta
+      </Button>
+    </Link>
+  </div>
+
+  {/* Social Proof
+  <div className="flex items-center justify-center gap-2 text-sm">
+    <div className="flex -space-x-2">
+      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-accent border-2 border-background" />
+      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-accent to-success border-2 border-background" />
+      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-success to-warning border-2 border-background" />
+      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-warning to-primary border-2 border-background flex items-center justify-center text-xs font-bold">
+        +10k
+      </div>
+    </div>
+    <span className="text-muted-foreground">
+      Desenvolvedores já resolveram mais de <strong className="text-foreground">250k mistérios</strong>
+    </span>
+  </div> */}
+</div>
       </section>
 
       {/* Features Grid */}
