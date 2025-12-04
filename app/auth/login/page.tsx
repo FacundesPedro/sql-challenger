@@ -43,7 +43,7 @@ export default function LoginPage() {
     // Clear error when user starts typing
     if (fieldErrors[field]) {
       setFieldErrors((prev) => ({ ...prev, [field]: undefined }))
-    }fieldErrors
+    }
   }
 
   const handleFieldBlur = (field: keyof LoginFormData) => () => {
@@ -89,10 +89,10 @@ export default function LoginPage() {
       <div className="w-full max-w-md space-y-8">
         <div className="text-center">
           <div className="mb-6 flex justify-center">
-            <Logo size="lg" />
+            <Logo size="lg"/>
           </div>
-          <h1 className="text-3xl font-bold text-balance">Welcome Back, Detective</h1>
-          <p className="mt-2 text-muted-foreground">Sign in to continue your SQL investigation</p>
+          <h1 className="text-3xl font-bold text-balance">Bem-vindo de volta, Detetive</h1>
+          <p className="mt-2 text-muted-foreground">Acesse para continuar sua investigação em SQL</p>
         </div>
 
         <AuthCard>
@@ -106,7 +106,7 @@ export default function LoginPage() {
             <FormField
               label="Email"
               type="email"
-              placeholder="detective@sqlchallenger.com"
+              placeholder="detetive@sqlchallenger.com"
               value={formData.email}
               onChange={handleFieldChange("email")}
               onBlur={handleFieldBlur("email")}
@@ -115,9 +115,9 @@ export default function LoginPage() {
             />
 
             <FormField
-              label="Password"
+              label="Senha"
               type="password"
-              placeholder="Enter your password"
+              placeholder="Digite sua senha"
               value={formData.password}
               onChange={handleFieldChange("password")}
               onBlur={handleFieldBlur("password")}
@@ -125,18 +125,24 @@ export default function LoginPage() {
               required
             />
 
-            <div className="flex items-center justify-between text-sm">
+            <div className="flex items-center justify-between text-sm mb-2">
               <label className="flex items-center gap-2">
                 <input type="checkbox" className="h-4 w-4 rounded border-border bg-input accent-primary" />
-                <span className="text-muted-foreground">Remember me</span>
+                <span className="text-muted-foreground">Lembrar de mim</span>
               </label>
               <Link href="/auth/forgot-password" className="text-primary hover:underline">
-                Forgot password?
+                Esqueceu a senha?
+              </Link>
+            </div>
+
+            <div className="mb-2 text-sm">
+              <Link href="/auth/register" className="text-primary hover:underline">
+                Não tem uma conta? Cadastre-se!
               </Link>
             </div>
 
             <Button type="submit" className="w-full cursor-pointer" size="lg" disabled={isLoading || hasErrors}>
-              {isLoading ? "Signing in..." : "Sign In"}
+              {isLoading ? "Entrando..." : "Entrar"}
             </Button>
           </form>
 
@@ -146,7 +152,7 @@ export default function LoginPage() {
                 <div className="w-full border-t border-border" />
               </div>
               <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-card px-2 text-muted-foreground">Or continue with</span>
+                <span className="bg-card px-2 text-muted-foreground">Ou continue com</span>
               </div>
             </div>
 
@@ -183,9 +189,9 @@ export default function LoginPage() {
         </AuthCard>
 
         <p className="text-center text-sm text-muted-foreground">
-          Don't have an account?{" "}
+          Não tem uma conta?{" "}
           <Link href="/auth/register" className="text-primary hover:underline font-semibold">
-            Start your investigation
+            Comece sua investigação
           </Link>
         </p>
       </div>

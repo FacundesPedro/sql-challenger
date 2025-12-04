@@ -112,9 +112,9 @@ export default function RegisterPage() {
 
   const getPasswordStrengthLabel = () => {
     if (passwordStrength === 0) return null
-    if (passwordStrength <= 2) return <Badge variant="destructive">Weak</Badge>
-    if (passwordStrength <= 3) return <Badge variant="warning">Medium</Badge>
-    return <Badge variant="success">Strong</Badge>
+    if (passwordStrength <= 2) return <Badge variant="destructive">Fraca</Badge>
+    if (passwordStrength <= 3) return <Badge variant="warning">Média</Badge>
+    return <Badge variant="success">Forte</Badge>
   }
 
   return (
@@ -124,8 +124,8 @@ export default function RegisterPage() {
           <div className="mb-6 flex justify-center">
             <Logo size="lg" />
           </div>
-          <h1 className="text-3xl font-bold text-balance">Join the Investigation</h1>
-          <p className="mt-2 text-muted-foreground">Create your detective account and start solving SQL mysteries</p>
+          <h1 className="text-3xl font-bold text-balance">Junte-se à Investigação</h1>
+          <p className="mt-2 text-muted-foreground">Crie sua conta de detetive e comece a solucionar mistérios em SQL</p>
         </div>
 
         <AuthCard>
@@ -137,21 +137,21 @@ export default function RegisterPage() {
             )}
 
             <FormField
-              label="Username"
+              label="Nome de usuário"
               type="text"
-              placeholder="detective_username"
+              placeholder="nome_do_detetive"
               value={formData.username}
               onChange={handleFieldChange("username")}
               onBlur={handleFieldBlur("username")}
               error={fieldErrors.username}
-              helperText="This will be your public detective name"
+              helperText="Este será seu nome de detetive público"
               required
             />
 
             <FormField
               label="Email"
               type="email"
-              placeholder="detective@sqlchallenger.com"
+              placeholder="detetive@sqlchallenger.com"
               value={formData.email}
               onChange={handleFieldChange("email")}
               onBlur={handleFieldBlur("email")}
@@ -161,14 +161,14 @@ export default function RegisterPage() {
 
             <div className="space-y-2">
               <FormField
-                label="Password"
+                label="Senha"
                 type="password"
-                placeholder="Create a strong password"
+                placeholder="Crie uma senha forte"
                 value={formData.password}
                 onChange={handleFieldChange("password")}
                 onBlur={handleFieldBlur("password")}
                 error={fieldErrors.password}
-                helperText="Minimum 8 characters with uppercase, lowercase, and numbers"
+                helperText="Mínimo de 8 caracteres com letras maiúsculas, minúsculas e números"
                 required
               />
               {formData.password && (
@@ -195,9 +195,9 @@ export default function RegisterPage() {
             </div>
 
             <FormField
-              label="Confirm Password"
+              label="Confirmar Senha"
               type="password"
-              placeholder="Confirm your password"
+              placeholder="Confirme sua senha"
               value={formData.confirmPassword}
               onChange={handleFieldChange("confirmPassword")}
               onBlur={handleFieldBlur("confirmPassword")}
@@ -212,19 +212,19 @@ export default function RegisterPage() {
                 required
               />
               <span className="text-muted-foreground">
-                I agree to the{" "}
+                Eu concordo com os{" "}
                 <Link href="/terms" className="text-primary hover:underline">
-                  Terms of Service
+                  Termos de Serviço
                 </Link>{" "}
-                and{" "}
+                e{" "}
                 <Link href="/privacy" className="text-primary hover:underline">
-                  Privacy Policy
+                  Política de Privacidade
                 </Link>
               </span>
             </div>
 
             <Button type="submit" className="w-full cursor-pointer" size="lg" disabled={isLoading || hasErrors}>
-              {isLoading ? "Creating account..." : "Create Detective Account"}
+              {isLoading ? "Criando conta..." : "Criar Conta de Detetive"}
             </Button>
           </form>
 
@@ -234,7 +234,7 @@ export default function RegisterPage() {
                 <div className="w-full border-t border-border" />
               </div>
               <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-card px-2 text-muted-foreground">Or sign up with</span>
+                <span className="bg-card px-2 text-muted-foreground">Ou cadastre-se com</span>
               </div>
             </div>
 
@@ -271,9 +271,9 @@ export default function RegisterPage() {
         </AuthCard>
 
         <p className="text-center text-sm text-muted-foreground">
-          Already have an account?{" "}
+          Já tem uma conta?{" "}
           <Link href="/auth/login" className="text-primary hover:underline font-semibold">
-            Sign in
+            Entre
           </Link>
         </p>
       </div>

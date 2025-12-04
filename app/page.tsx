@@ -3,36 +3,36 @@ import { Header } from "@/_components/_organisms/header"
 import { Button } from "@/_components/_atoms/button"
 import { Badge } from "@/_components/_atoms/badge"
 import ThreeScene from "@/_components/_organisms/three-path"
+import { Divider } from "@/_components/_atoms/divider"
 
 export default function HomePage() {
   return (
-    <div className="h-full relative flex flex-col justify-center">
+    <div className="h-full relative flex flex-col gap-y-16">
       <Header />
       <ThreeScene />
       {/* Hero Section */}
-      <section className="mx-auto max-w-7xl sm:mt-10 lg:mt-12 mt-16 px-4 sm:px-6 lg:px-8 py-24 mb-auto">
+      <section className="mx-auto max-w-7xl sm:mt-12 mt-16 px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-8">
           <Badge variant="primary" className="text-sm">
-            🔍 Learn SQL Through Detective Stories
+            🔍 Aprenda SQL com Histórias de Detetive
           </Badge>
           <h1 className="text-5xl md:text-6xl font-bold text-balance leading-tight">
-            Master SQL by Solving
+            Domine SQL resolvendo
             <br />
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Real-World Mysteries
+              Mistérios da Vida Real
             </span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-balance">
-            Join thousands of developers learning SQL through engaging detective stories, gamified challenges, and
-            hands-on practice.
+            Junte-se a milhares de desenvolvedores aprendendo SQL por meio de histórias de detetive envolventes, desafios gamificados e prática interativa.
           </p>
           <div className="flex items-center justify-center gap-4">
             <Link href="/auth/register">
-              <Button size="lg" className="cursor-pointer">Start Your Investigation</Button>
+              <Button size="lg" className="cursor-pointer">Comece sua Investigação</Button>
             </Link>
             <Link href="/auth/login">
               <Button size="lg" variant="outline" className="cursor-pointer">
-                Sign In
+                Entrar
               </Button>
             </Link>
           </div>
@@ -40,10 +40,10 @@ export default function HomePage() {
       </section>
 
       {/* Features Grid */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+      <section className="mx-auto max-w-7xl px-4 pb-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-6">
           <div className="rounded-xl border border-border bg-card p-6 hover:border-primary/50 transition-colors">
-            <div className="mb-4 flex w-12 items-center justify-center rounded-lg bg-primary/10">
+            <div className="mx-auto p-2 mb-4 flex w-12 items-center justify-center rounded-lg bg-primary/10">
               <svg className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path
                   strokeLinecap="round"
@@ -53,14 +53,15 @@ export default function HomePage() {
                 />
               </svg>
             </div>
-            <h3 className="text-xl font-bold mb-2">Story-Driven Learning</h3>
+            <Divider />
+
+            <h3 className="text-xl font-bold mb-2">Aprendizado através de Histórias</h3>
             <p className="text-muted-foreground">
-              Solve SQL mysteries through engaging detective stories that make learning fun and memorable.
+              Resolva mistérios de SQL por meio de histórias de detetive envolventes que tornam o aprendizado divertido e memorável.
             </p>
           </div>
-
           <div className="rounded-xl border border-border bg-card p-6 hover:border-accent/50 transition-colors">
-            <div className="mb-4 flex w-12 items-center justify-center rounded-lg bg-accent/10">
+            <div className="mx-auto p-2 mb-4 flex w-12 items-center justify-center rounded-lg bg-accent/10">
               <svg className="h-6 w-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path
                   strokeLinecap="round"
@@ -70,14 +71,16 @@ export default function HomePage() {
                 />
               </svg>
             </div>
-            <h3 className="text-xl font-bold mb-2">Gamified Progress</h3>
+            <Divider />
+
+            <h3 className="text-xl font-bold mb-2">Progresso Gamificado</h3>
             <p className="text-muted-foreground">
-              Earn XP, unlock achievements, and climb the leaderboard as you master SQL concepts.
+              Ganhe XP, desbloqueie conquistas e suba no ranking enquanto domina conceitos de SQL.
             </p>
           </div>
 
           <div className="rounded-xl border border-border bg-card p-6 hover:border-success/50 transition-colors">
-            <div className="mb-4 flex w-12 items-center justify-center rounded-lg bg-success/10">
+            <div className="mx-auto p-2 mb-4 flex w-12 items-center justify-center rounded-lg bg-success/10">
               <svg className="h-6 w-6 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path
                   strokeLinecap="round"
@@ -87,9 +90,11 @@ export default function HomePage() {
                 />
               </svg>
             </div>
-            <h3 className="text-xl font-bold mb-2">Hands-On Practice</h3>
+            <Divider />
+
+            <h3 className="text-xl font-bold mb-2">Prática Mão na Massa</h3>
             <p className="text-muted-foreground">
-              Write real SQL queries in our interactive editor with instant feedback and hints.
+              Escreva consultas SQL reais em nosso editor interativo com feedback instantâneo e dicas.
             </p>
           </div>
         </div>

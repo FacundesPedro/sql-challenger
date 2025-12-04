@@ -45,14 +45,14 @@ export default function ForgotPasswordPage() {
                   />
                 </svg>
               </div>
-              <h2 className="text-2xl font-bold">Check Your Email</h2>
+              <h2 className="text-2xl font-bold">Confira seu Email</h2>
               <p className="text-muted-foreground">
-                We've sent password reset instructions to <span className="font-semibold text-foreground">{email}</span>
+                Enviamos instruções de redefinição de senha para <span className="font-semibold text-foreground">{email}</span>
               </p>
               <p className="text-sm text-muted-foreground">
-                Didn't receive the email? Check your spam folder or{" "}
+                Não recebeu o email? Verifique sua caixa de spam ou{" "}
                 <button onClick={() => setIsSubmitted(false)} className="text-primary hover:underline">
-                  try again
+                  tente novamente
                 </button>
               </p>
             </div>
@@ -60,7 +60,7 @@ export default function ForgotPasswordPage() {
             <div className="mt-6">
               <Link href="/auth/login" className="cursor-pointer">
                 <Button variant="outline" className="w-full bg-transparent">
-                  Back to Sign In
+                  Voltar para Login
                 </Button>
               </Link>
             </div>
@@ -77,9 +77,9 @@ export default function ForgotPasswordPage() {
           <div className="mb-6 flex justify-center">
             <Logo size="lg" />
           </div>
-          <h1 className="text-3xl font-bold text-balance">Reset Your Password</h1>
+          <h1 className="text-3xl font-bold text-balance">Redefina sua Senha</h1>
           <p className="mt-2 text-muted-foreground">
-            Enter your email and we'll send you instructions to reset your password
+            Digite seu email e enviaremos instruções para redefinir sua senha
           </p>
         </div>
 
@@ -88,15 +88,15 @@ export default function ForgotPasswordPage() {
             <FormField
               label="Email"
               type="email"
-              placeholder="detective@sqlchallenger.com"
+              placeholder="detetive@sqlchallenger.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              helperText="We'll send reset instructions to this email"
+              helperText="Enviaremos instruções de redefinição para este email"
               required
             />
 
             <Button type="submit" className="w-full" size="lg" disabled={isLoading}>
-              {isLoading ? "Sending..." : "Send Reset Instructions"}
+              {isLoading ? "Enviando..." : "Enviar Instruções de Redefinição"}
             </Button>
           </form>
 
@@ -106,16 +106,16 @@ export default function ForgotPasswordPage() {
                 <svg className="mr-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                 </svg>
-                Back to Sign In
+                Voltar para Login
               </Button>
             </Link>
           </div>
         </AuthCard>
 
         <p className="text-center text-sm text-muted-foreground">
-          Don't have an account?{" "}
+          Não tem uma conta?{" "}
           <Link href="/auth/register" className="cursor-pointer text-primary hover:underline font-semibold">
-            Start your investigation
+            Comece sua investigação
           </Link>
         </p>
       </div>
