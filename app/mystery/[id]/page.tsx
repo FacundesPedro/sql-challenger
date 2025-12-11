@@ -10,6 +10,7 @@ import { DatabaseExplorer } from "@/_components/_organisms/databaseExplorer";
 import { HintsPanel } from "@/_components/_organisms/hintsPanel";
 import type { MysteryDetail, QueryResult } from "@/_lib/types/mystery";
 import { mockMysteryDetail } from "@/_lib/mock/mystery";
+import { LoadingScreen } from "@/_components/_organisms/loadingScreen";
 
 export default function MysteryEditorPage() {
   const params = useParams();
@@ -72,12 +73,7 @@ export default function MysteryEditorPage() {
 
   if (!mystery) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
-          <p className="text-muted-foreground">Carregando mistério...</p>
-        </div>
-      </div>
+      <LoadingScreen />
     );
   }
 

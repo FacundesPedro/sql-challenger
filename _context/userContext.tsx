@@ -1,23 +1,27 @@
 "use client"
 
-import { apiClient } from "@/_lib/api"
+import { api } from "@/_lib/api"
 import type React from "react"
 import { createContext, useContext, useEffect, useState } from "react"
+import { User, UserSignUp } from '@/_lib/types/user'
+// export type User = {
+//   id: string
+//   name: string
+//   email: string
+//   avatar?: string
+//   level?: number
+//   xp?: number
+// }
 
-export type User = {
-  id: string
-  name: string
-  email: string
-  avatar?: string
-  level?: number
-  xp?: number
-}
+// export interface LoginUserResponse extends User {
+
+// }
 
 type UserContextType = {
   user: User | null
   // isLoading: boolean
   signIn: (email: string, password: string) => Promise<void>
-  signUp: (name: string, email: string, password: string) => Promise<void>
+  signUp: (form: UserSignUp) => Promise<void>
   signOut: () => void
   updateUser: (updates: Partial<User>) => void
 }
@@ -44,39 +48,17 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
     // loginSchema.parse({ email, password })
     // TODO: Replace with actual API call
     // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+    // await new Promise((resolve) => setTimeout(resolve, 1000))
 
-    // const user = await apiClient.post<User>('/auth/login', {email, password})
-    // Mock user data
-    const user: User = {
-      id: "1",
-      name: "John Doe",
-      email: email,
-      avatar: undefined,
-      level: 5,
-      xp: 1250,
-    }
+    const user = await api.post<User>('/api/user', {email, password})
     // persist session
+    // change to jwt or order thing 
     setUser(user)
     localStorage.setItem("user", JSON.stringify(user))
   }
 
-  const signUp = async (name: string, email: string, password: string) => {
-
-    // TODO: Replace with actual API call
-    // Simulate API call
-    // await new Promise((resolve) => setTimeout(resolve, 1000))
-
-    // // Mock user data
-    // const mockUser: User = {
-    //   id: "1",
-    //   name: name,
-    //   email: email,
-    //   avatar: undefined,
-    //   level: 1,
-    //   xp: 0,
-    // }
-    const user = await apiClient.post<User>('/auth/register', { name, email, password })
+  const signUp = async (form: UserSignUp) => {
+    const user = await api.post<User>('/api/user/auth', form)
 
     setUser(user)
     localStorage.setItem("user", JSON.stringify(user))

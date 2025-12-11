@@ -128,4 +128,4 @@ class ApiClient {
 }
 
 // Export singleton instance
-export const apiClient = new ApiClient(config.API_FULL_URL)
+export const api = new ApiClient(config.API_FULL_URL)
