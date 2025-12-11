@@ -50,7 +50,7 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
     // Simulate API call
     // await new Promise((resolve) => setTimeout(resolve, 1000))
 
-    const user = await api.post<User>('/api/user', {email, password})
+    const user = await api.post<User>('/api/user/auth/', {email, password})
     // persist session
     // change to jwt or order thing 
     setUser(user)
@@ -58,7 +58,7 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
   }
 
   const signUp = async (form: UserSignUp) => {
-    const user = await api.post<User>('/api/user/auth', form)
+    const user = await api.post<User>('/api/user/', form)
 
     setUser(user)
     localStorage.setItem("user", JSON.stringify(user))

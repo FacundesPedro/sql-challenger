@@ -45,11 +45,13 @@ export class ApiError extends Error {
    */
   getUserMessage(): string {
     if (this.isNetworkError()) {
-      return `[${this.message.split('-')[1]}] `+"Network error. Please check your connection and try again. "
+      return `[${this.message.split('-')[1]}] Erro na conexão, verifique sua rede.`
     }
+    //
     if (this.isServerError()) {
-      return "Server error. Please try again later. "
+      return `[Status HTTP ${this.statusCode}] Aconteceu um erro no lado do servidor.`
     }
+    //
     return this.message
   }
 }

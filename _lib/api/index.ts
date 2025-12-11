@@ -1,5 +1,8 @@
+"use client"
 import { config } from "@/_utils"
 import { ApiError } from "../errors"
+// import '@/_lib/env'
+
 
 type RequestOptions = {
     method?: "GET" | "POST" | "PUT" | "PATCH" | "DELETE"
@@ -62,7 +65,7 @@ class ApiClient {
             } catch {
                 // If response is not JSON, create a generic error
                 if (!response.ok) {
-                    throw new ApiError(response.statusText || "Request failed", response.status)
+                    throw new ApiError(response.statusText || "Requisição falhou", response.status)
                 }
                 // If response is ok but not JSON, return empty object
                 data = {} as ApiResponse<T>
@@ -71,7 +74,7 @@ class ApiClient {
 
             // Handle error responses
             if (!response.ok) {
-                throw new ApiError(data.error || data.message || "Request failed", response.status, data.fieldErrors)
+                throw new ApiError((data.error || data.message) || "Requisição falhou", response.status, data.fieldErrors)
             }
 
             return data.data as T
@@ -87,7 +90,7 @@ class ApiClient {
             }
 
             // Handle unknown errors
-            throw new ApiError(error instanceof Error ? error.message : "An unexpected error occurred")
+            throw new ApiError(error instanceof Error ? error.message : "Um erro inesperado aconteceu")
         }
     }
 
@@ -128,4 +131,4 @@ class ApiClient {
 }
 
 // Export singleton instance
-export const api = new ApiClient(config.API_FULL_URL)
+export const api = new ApiClient(`${process.env["NEXT_PUBLIC_API_BASE_URL"]}:${process.env["NEXT_PUBLIC_API_PORT"]}`)
